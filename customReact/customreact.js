@@ -8,7 +8,7 @@ function customRender(reactElement, container){
 } 
 
 const reactElement = {
-    type: 'h1',
+    type: 'a',
     props: {
         title: 'https://www.google.com',
         target: 'root'
