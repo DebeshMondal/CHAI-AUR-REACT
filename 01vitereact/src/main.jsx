@@ -26,10 +26,14 @@ const anotherElement = (
 const reactElement = React.createElement('a', { href: 'https://google.com', target: '_blank' }, 'GOOOOGLE Again')
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    // <MyApp />
+
+
+  // <MyApp />
+
+
     // MyApp()
 
     // anotherElement
 
-    reactElement
+    // reactElement
 )
