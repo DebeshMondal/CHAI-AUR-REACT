@@ -28,6 +28,8 @@ const reactElement = React.createElement('a', { href: 'https://google.com', targ
 ReactDOM.createRoot(document.getElementById('root')).render(
 
 
+     App()
+
   // <MyApp />
 
 
