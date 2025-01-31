@@ -19,9 +19,15 @@ const reactElement = {
     children: ["Click me!"],
   };
 
+  const anotherElement = (
+    <a href="https://google.com" target='_blank'>GOOOOGLE</a>
+  )
+
 createRoot(document.getElementById('root')).render(
  
-    <MyApp />
+    // <MyApp />
     // MyApp()
+
+    anotherElement
    
 )
