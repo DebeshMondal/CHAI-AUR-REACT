@@ -5,15 +5,24 @@ import './App.css'
 
 function App() {
  
+   let counter = 15  // counter value
+
+  const addValue = () => {
+    console.log("Add value",Math.random());
+    
+  }
+
   return (
     <>
      
      <h1>Chai aur react</h1>
-      <h2>Counter value: 5 </h2>
+      <h2>Counter value: {counter}</h2>
 
-      <button>Add value</button>
+      <button
+      onClick={addValue}
+      >Add value</button>
       <br />
-      <button>Removw value</button>
+      <button>Remove value</button>
     </>
   )
 }
