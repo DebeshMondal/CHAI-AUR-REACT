@@ -15,6 +15,13 @@ function App() {
     
   }
 
+  const RemoveValue = () => {
+    
+    counteer = counter - 1
+    console.log("Counter value now: ",counteer);
+    
+  }
+
   return (
     <>
      
@@ -25,7 +32,9 @@ function App() {
       onClick={addValue}
       >Add value</button>
       <br />
-      <button>Remove value</button>
+      <button
+      onclick={RemoveValue}
+      >Remove value</button>
     </>
   )
 }
