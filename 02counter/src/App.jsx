@@ -31,8 +31,8 @@ function App() {
      
      <h1>Chai aur react</h1>  
       <h2>Counter value: {counter}</h2>
-      {/* <h2>Added value: {counter}</h2>
-      <h2>Removed value: {counter}</h2> */}
+      <h2>Added value: {counter}</h2>
+      <h2>Removed value: {counter}</h2>
 
       
       <button
