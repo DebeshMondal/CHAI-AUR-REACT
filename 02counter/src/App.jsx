@@ -5,39 +5,42 @@ import './App.css'
 
 function App() {
  
-   const [counter,setcount] = useState(15)
+   let [counter,setcounter] = useState(15)
 
    //let counter = 15  // counter value
 
   const addValue = () => {
     // console.log("Add value",Math.random());
 
-    counter = counter + 1
-    setcount(counter)
-    console.log("Counter value now: ",counter);
+    //counter = counter + 1
+    setcounter(counter+1)
+    
 
     
   }
 
   const RemoveValue = () => {
     
-    counteer = counter - 1
-    console.log("Counter value now: ",counter);
+    setcounter(counter-1)
+    
     
   }
 
   return (
     <>
      
-     <h1>Chai aur react</h1>
+     <h1>Chai aur react</h1>  
       <h2>Counter value: {counter}</h2>
+      {/* <h2>Added value: {counter}</h2>
+      <h2>Removed value: {counter}</h2> */}
 
+      
       <button
       onClick={addValue}
       >Add value</button>
       <br />
       <button
-      onclick={RemoveValue}
+      onClick={RemoveValue}
       >Remove value</button>
     </>
   )
