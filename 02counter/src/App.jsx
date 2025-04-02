@@ -39,7 +39,7 @@ function App() {
       <br />
       <button
       onClick={RemoveValue}
-      >Remove value</button>
+      >Removed value</button>
     </>
   )
 }
