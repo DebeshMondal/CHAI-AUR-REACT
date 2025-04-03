@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function card(props) {
+function Card (){
   return (
     <div className="w-60 h-60 rounded-xl">
         <img
@@ -17,4 +17,4 @@ function card(props) {
 }
 
 
-export default card
+export default Card
