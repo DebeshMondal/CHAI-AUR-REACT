@@ -10,21 +10,17 @@ function App() {
     <>
       <h1 className='bg-blue-300 text-red-400 rounded-2xl'>Tailwind test</h1>
 
-      <div class="flex flex-col items-center gap-6 p-7 md:flex-row md:gap-8 rounded-2xl">
-  <div>
-    <img class="size-48 shadow-xl rounded-md" alt="" src="https://images.pexels.com/photos/30553472/pexels-photo-30553472/free-photo-of-elderly-couple-relaxing-outdoors-in-mexico.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" />
-  </div>
-  <div class="flex items-center md:items-start">
-    <span class="text-2xl font-medium">Class Warfare</span>
-    <span class="font-medium text-sky-500">The Anti-Patterns</span>
-    <span class="flex gap-2 font-medium text-gray-600 dark:text-gray-400">
-      <span>No. 4</span>
-      <span>·</span>
-      <span>2025</span>
-    </span>
-  </div>
-</div>
-
+      <div className="w-60 h-60 rounded-xl">
+        <img
+          src="https://media1.giphy.com/media/z8n8dWgQ0mgEIyzlmV/giphy.gif?cid=790b7611a5ba988db1bc7457636dd163c28af6f6dbc84a77&rid=giphy.gif&ct=g"
+          alt="Giphy"
+          className="rounded-t-xl"
+        />
+        <div className="glass py-4 px-5 relative -top-[3.4rem]  rounded-b-xl z-10">
+          <h1 className="font-bold  font-mono  text-xl">Available soon</h1>
+        </div>
+      </div>
+      
     </>
   )
 }
