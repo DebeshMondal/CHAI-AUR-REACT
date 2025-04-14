@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react'
-import './App.css'
+import { useCallback, useState } from 'react';
+import './App.css';
 
 function App() {
   const [length, setlength] = useState(8);
@@ -9,52 +9,53 @@ function App() {
   const [password, setpassword] = useState('');
   const [copy, setcopy] = useState(false);
 
-
-  const passwordgenerator =  useCallback(()=>{
+  const passwordgenerator = useCallback(() => {
     let password = '';
-    let str ="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z "
-    if(numbers){
-      str += '0123456789'
+    let str = "abcdefghijklmnopqrstuvwxyz";
+
+    if (numbers) {
+      str += '0123456789';
+    }
+    if (spcharacters) {
+      str += '!@#$%^&*()_+';
+    }
+    if (uppercase) {
+      str += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     }
 
-    if(spcharacters){
-      str += '!@#$%^&*()_+'
+    for (let i = 0; i < length; i++) {
+      password += str.charAt(Math.floor(Math.random() * str.length));
     }
-    if(uppercase){
-      str += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    } 
-    for(let i=0; i<=length; i++){
-      password += str.charAt(Math.floor(Math.random() * str.length+1))
-    }
-    setpassword(password)
-    setcopy(true)
 
-  },[length, numbers, spcharacters, uppercase,setpassword, setcopy]);
-
-
+    setpassword(password);
+    setcopy(true);
+  }, [length, numbers, spcharacters, uppercase]);
 
   return (
     <>
-     
+      <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-6 my-8 bg-[#0f172a]'>
+        <h1 className='text-2xl text-center text-white mb-4 font-semibold'>Password generator</h1>
 
-      <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 text-blue-700 bg-blue-200'>
-
-      <h1 className='text-3xl text-center text-white'>PASSWORD GENERETOR</h1>
-
-         <div className='flex shadow rounded-lg overflow-hidden '>
+        <div className='flex shadow rounded-lg overflow-hidden mb-4'>
           <input
-           type="text "
-           value={password}
-           className='outline-none w-full py-1 px-3  '
+            type="text"
+            value={password}
+            className='outline-none w-full py-2 px-4 text-black rounded-md bg-white'
             placeholder='Password'
             readOnly
-           />
+          />
+        </div>
 
-         </div>
-
+        {/* Optional: Add Generate button to test */}
+        <button
+          onClick={passwordgenerator}
+          className='w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition'
+        >
+          Generate Password
+        </button>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
