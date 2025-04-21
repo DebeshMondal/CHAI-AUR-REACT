@@ -37,47 +37,49 @@ function App() {
   }, [length, numberAllowed, charAllowed, passwordGenerator])
 
   return (
-    <div className={`${darkMode ? 'bg-gray-800 text-orange-500' : 'bg-white text-gray-800'} w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8`}>
-      <div className='flex justify-between items-center mb-3'>
-        <h1 className='text-center text-lg font-semibold w-full'>Password Generator</h1>
+    <div className={`${darkMode ? 'bg-gray-900 text-orange-500' : 'bg-white text-gray-900'} w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-4 my-8`}>
+      <div className='flex justify-between items-center mb-4'>
+        <h1 className='text-center text-lg font-bold w-full'>Password Generator</h1>
         <button
           onClick={() => setDarkMode(prev => !prev)}
-          className='text-sm px-2 py-1 rounded border ml-2'
+          className={`${darkMode ? 'border-orange-500 text-orange-500' : 'border-gray-800 text-gray-800'} text-sm px-3 py-1 border rounded-md ml-2`}
         >
           {darkMode ? "☀️ Light" : "🌙 Dark"}
         </button>
       </div>
 
-      <div className="flex shadow rounded-lg overflow-hidden mb-4">
+      <div className="flex rounded-md overflow-hidden mb-4 bg-gray-700">
         <input
           type="text"
           value={password}
-          className="outline-none w-full py-1 px-3"
+          className="outline-none w-full py-2 px-3 bg-transparent text-orange-500"
           placeholder="Password"
           readOnly
           ref={passwordRef}
         />
         <button
           onClick={copyPasswordToClipboard}
-          className={`${darkMode ? 'bg-blue-700 text-white' : 'bg-blue-500 text-white'} outline-none px-3 py-0.5 shrink-0 text-xl`}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 text-xl"
         >
           📋
         </button>
       </div>
+
       {copySuccess && <p className="text-green-400 text-sm mb-2">{copySuccess}</p>}
 
-      <div className='flex text-sm gap-x-2 flex-wrap'>
-        <div className='flex items-center gap-x-1'>
+      <div className='flex text-sm gap-x-4 flex-wrap'>
+        <div className='flex items-center gap-x-2'>
           <input
             type="range"
             min={6}
             max={15}
             value={length}
-            className='cursor-pointer'
+            className='cursor-pointer accent-orange-500'
             onChange={(e) => setLength(Number(e.target.value))}
           />
           <label>Length: {length}</label>
         </div>
+
         <div className="flex items-center gap-x-1">
           <input
             type="checkbox"
@@ -87,6 +89,7 @@ function App() {
           />
           <label htmlFor="numberInput">Numbers</label>
         </div>
+
         <div className="flex items-center gap-x-1">
           <input
             type="checkbox"
