@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -24,12 +24,21 @@ function App() {
     }
 
     for (let i = 0; i < length; i++) {
-      password += str.charAt(Math.floor(Math.random() * str.length));
+      let char = Math.floor(Math.random() * str.length);
+      password += str.charAt(char);
     }
 
     setpassword(password);
     setcopy(true);
   }, [length, numbers, spcharacters, uppercase]);
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(password);
+    setcopy(true);
+    setTimeout(() => {
+      setcopy(false);
+    }, 2000);
+  };
 
   return (
     <>
@@ -45,56 +54,57 @@ function App() {
             readOnly
           />
           <button
-      className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 rounded-xl'> COPY</button>
-
+            onClick={copyToClipboard}
+            className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 rounded-xl'
+          >
+            {copy ? "Copied!" : "COPY"}
+          </button>
         </div>
 
-
         <div className='flex flex-wrap text-sm gap-x-2 gap-y-2'>
-  <div className='flex items-center gap-x-1'>
-    <input
-      type="range"
-      min={6}
-      max={20}
-      value={length}
-      className='cursor-pointer'
-      onChange={(e) => setlength(Number(e.target.value))}
-    />
-    <label>length: {length}</label>
-  </div>
+          <div className='flex items-center gap-x-1'>
+            <input
+              type="range"
+              min={6}
+              max={20}
+              value={length}
+              className='cursor-pointer'
+              onChange={(e) => setlength(Number(e.target.value))}
+            />
+            <label>length: {length}</label>
+          </div>
 
-  <div className="flex items-center gap-x-1">
-    <input 
-      type="checkbox"
-      defaultChecked={numbers}
-      id="numberInput"
-      onChange={() => setnumbers(prev => !prev)}
-    />
-    <label htmlFor="numberInput">Include Numbers</label>
-  </div>
+          <div className="flex items-center gap-x-1">
+            <input 
+              type="checkbox"
+              defaultChecked={numbers}
+              id="numberInput"
+              onChange={() => setnumbers(prev => !prev)}
+            />
+            <label htmlFor="numberInput">Include Numbers</label>
+          </div>
 
-  <div className="flex items-center gap-x-1">
-    <input 
-      type="checkbox"
-      defaultChecked={spcharacters}
-      id="spcharactersInput"
-      onChange={() => setspcharacters(prev => !prev)}
-    />
-    <label htmlFor="spcharactersInput">Include SpCharacter</label>
-  </div>
+          <div className="flex items-center gap-x-1">
+            <input 
+              type="checkbox"
+              defaultChecked={spcharacters}
+              id="spcharactersInput"
+              onChange={() => setspcharacters(prev => !prev)}
+            />
+            <label htmlFor="spcharactersInput">Include Special Characters</label>
+          </div>
 
-  <div className="flex items-center gap-x-1">
-    <input 
-      type="checkbox"
-      defaultChecked={uppercase}
-      id="uppercaseInput"
-      onChange={() => setuppercase(prev => !prev)}
-    />
-    <label htmlFor="uppercaseInput">Include Uppercase</label>
-  </div>
-</div>
+          <div className="flex items-center gap-x-1">
+            <input 
+              type="checkbox"
+              defaultChecked={uppercase}
+              id="uppercaseInput"
+              onChange={() => setuppercase(prev => !prev)}
+            />
+            <label htmlFor="uppercaseInput">Include Uppercase</label>
+          </div>
+        </div>
 
-      
         <button
           onClick={passwordgenerator}
           className='w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition'
