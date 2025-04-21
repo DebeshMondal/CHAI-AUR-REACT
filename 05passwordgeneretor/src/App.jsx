@@ -45,13 +45,13 @@ function App() {
             readOnly
           />
           <button
-      className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 rounded-4xl'> COPY</button>
+      className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 rounded-xl'> COPY</button>
 
         </div>
 
 
-          <div className='flex test-sm gap-x-2'>
-            <div className='flax items-center gap-x-1'>
+          <div className='flex text-sm gap-x-2'>
+            <div className='flex items-center gap-x-1'>
                 <input
                  type="range"
                   min={6}
@@ -61,7 +61,54 @@ function App() {
                   onChange={(e) => setlength(e.target.value)}
                  />
                  <label >length:{length}</label>
+
+
+
             </div>
+
+            <div className="flex items-center gap-x-1">
+          <input 
+          type="checkbox"
+          defaultChecked={numbers}
+          id="numberInput"
+          onChange={() => {
+            setnumbers((prev) => !prev);
+          }}
+          />
+          <label htmlFor="numberInput" className='text-sm'>Include Numbers</label>
+          
+          </div>
+          
+
+          <div className="flex items-center gap-x-1">
+          <input 
+          type="checkbox"
+          defaultChecked={spcharacters}
+          id="spcharactersInput"
+          onChange={() => {
+            setspcharacters((prev) => !prev);
+          }}
+          />
+          <label htmlFor="spcharacters" className='text-sm'>Include SpCharacter</label>
+          
+          </div>
+
+
+          <div className="flex items-center gap-x-1">
+          <input 
+          type="checkbox"
+          defaultChecked={uppercase}
+          id="uppercaseInput"
+          onChange={() => {
+            setuppercase((prev) => !prev);
+          }}
+          />
+          <label htmlFor="uppercase" className='text-sm'>Include Uppercase</label>
+          
+          </div>
+
+
+
           </div>
 
       
