@@ -33,7 +33,7 @@ function App() {
 
   return (
     <>
-      <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-6 my-8 bg-[#0f172a]'>
+      <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-6 my-8 text-orange-400 bg-[#0f172a]'>
         <h1 className='text-2xl text-center text-white mb-4 font-semibold'>Password generator</h1>
 
         <div className='flex shadow rounded-lg overflow-hidden mb-4'>
@@ -44,9 +44,27 @@ function App() {
             placeholder='Password'
             readOnly
           />
+          <button
+      className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 rounded-4xl'> COPY</button>
+
         </div>
 
-        {/* Optional: Add Generate button to test */}
+
+          <div className='flex test-sm gap-x-2'>
+            <div className='flax items-center gap-x-1'>
+                <input
+                 type="range"
+                  min={6}
+                  max={20} 
+                  value={length}
+                  className='cursor-pointer'
+                  onChange={(e) => setlength(e.target.value)}
+                 />
+                 <label >length:{length}</label>
+            </div>
+          </div>
+
+      
         <button
           onClick={passwordgenerator}
           className='w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition'
