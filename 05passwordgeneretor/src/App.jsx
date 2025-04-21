@@ -50,66 +50,49 @@ function App() {
         </div>
 
 
-          <div className='flex text-sm gap-x-2'>
-            <div className='flex items-center gap-x-1'>
-                <input
-                 type="range"
-                  min={6}
-                  max={20} 
-                  value={length}
-                  className='cursor-pointer'
-                  onChange={(e) => setlength(e.target.value)}
-                 />
-                 <label >length:{length}</label>
+        <div className='flex flex-wrap text-sm gap-x-2 gap-y-2'>
+  <div className='flex items-center gap-x-1'>
+    <input
+      type="range"
+      min={6}
+      max={20}
+      value={length}
+      className='cursor-pointer'
+      onChange={(e) => setlength(Number(e.target.value))}
+    />
+    <label>length: {length}</label>
+  </div>
 
+  <div className="flex items-center gap-x-1">
+    <input 
+      type="checkbox"
+      defaultChecked={numbers}
+      id="numberInput"
+      onChange={() => setnumbers(prev => !prev)}
+    />
+    <label htmlFor="numberInput">Include Numbers</label>
+  </div>
 
+  <div className="flex items-center gap-x-1">
+    <input 
+      type="checkbox"
+      defaultChecked={spcharacters}
+      id="spcharactersInput"
+      onChange={() => setspcharacters(prev => !prev)}
+    />
+    <label htmlFor="spcharactersInput">Include SpCharacter</label>
+  </div>
 
-            </div>
-
-            <div className="flex items-center gap-x-1">
-          <input 
-          type="checkbox"
-          defaultChecked={numbers}
-          id="numberInput"
-          onChange={() => {
-            setnumbers((prev) => !prev);
-          }}
-          />
-          <label htmlFor="numberInput" className='text-sm'>Include Numbers</label>
-          
-          </div>
-          
-
-          <div className="flex items-center gap-x-1">
-          <input 
-          type="checkbox"
-          defaultChecked={spcharacters}
-          id="spcharactersInput"
-          onChange={() => {
-            setspcharacters((prev) => !prev);
-          }}
-          />
-          <label htmlFor="spcharacters" className='text-sm'>Include SpCharacter</label>
-          
-          </div>
-
-
-          <div className="flex items-center gap-x-1">
-          <input 
-          type="checkbox"
-          defaultChecked={uppercase}
-          id="uppercaseInput"
-          onChange={() => {
-            setuppercase((prev) => !prev);
-          }}
-          />
-          <label htmlFor="uppercase" className='text-sm'>Include Uppercase</label>
-          
-          </div>
-
-
-
-          </div>
+  <div className="flex items-center gap-x-1">
+    <input 
+      type="checkbox"
+      defaultChecked={uppercase}
+      id="uppercaseInput"
+      onChange={() => setuppercase(prev => !prev)}
+    />
+    <label htmlFor="uppercaseInput">Include Uppercase</label>
+  </div>
+</div>
 
       
         <button
