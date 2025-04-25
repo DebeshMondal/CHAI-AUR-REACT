@@ -35,12 +35,16 @@ function InputBox({
               <p className="text-black/40 mb-2 w-full">Currency Type</p>
               <select
                   className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
-                  
+                  value={currencyType}
+                  onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
+                  disabled={currencyDisabled}
               >
                   
-                      <option value="usd">
-                          usd
-                      </option>
+                     {currencyOption.map((Currency) => (
+                       <option key={Currency} value="usd">
+                       usd
+                   </option>
+                     ))}
               
               </select>
           </div>
