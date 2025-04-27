@@ -9,20 +9,18 @@ function App() {
   const [to , setto] = useState('INR')
   const [result, setresult] = useState(0)
 
- const useCurrencyInfo = useCurrencyInfo(from)
-
- const options = Object.keys(useCurrencyInfo)
+ const [convertedAmount, setConvertedAmount] = useState(0);
+ const useCurrencyInfo2 = useCurrencyInfo(from);
+ const options = Object.keys(useCurrencyInfo2);
 
  const swap = () => {
-
-  setfrom(to)
-  setto(temp)
-  setConvertedAmount(amounnt)
-  setamount(setConvertedAmount)
- }
+  const temp = from;
+  setfrom(to);
+  setto(temp);
+ };
 
  const convert = () => {
-  setConvertedAmount = (amount * CurrencyInfo[to]) 
+  setConvertedAmount(amount * useCurrencyInfo[to]);
   // / useCurrencyInfo[from]
  }
 
@@ -43,14 +41,14 @@ function App() {
                   }}
               >
                   <div className="w-full mb-1">
-                      <InputBox
-                          label="From"
-                          amount={amount}
-                          currencyOptions={options}
-                          onCurrencyChange={(currency) => setamount(amount)}
-                          selectedCurrency={from}
-                          
-                      />
+                    <InputBox
+                        label="From"
+                        amount={amount}
+                        currencyOptions={options}
+                        onCurrencyChange={(currency) => setfrom(currency)}
+                        selectedCurrency={from}
+
+                    />
                   </div>
                   <div className="relative w-full h-0.5">
                       <button
